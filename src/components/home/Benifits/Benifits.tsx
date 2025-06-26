@@ -43,7 +43,7 @@ const Benefits: React.FC = () => {
                     </Row>
                 </Col>
                 <Col span={1}>
-                    <img src={gearImage} alt="Brush" className="gear-img" />
+                    <img src={gearImage} alt="Brush" className="machine-img" />
                 </Col>
             </Row>
         </section>

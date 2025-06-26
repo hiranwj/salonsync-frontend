@@ -1,0 +1,50 @@
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 100px 0 80px;
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+    font-family: Arial, sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text {
+    width: 120px;
+}
+
+.logo-subtext {
+    font-size: 0.8em;
+    color: #888888;
+}
+
+.header-menu {
+    margin-left: 40px;
+    margin-top: -10px;
+    border-bottom: none;
+}
+
+.header-menu .ant-menu-item {
+    font-size: 1em;
+    color: #333333;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.username {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #333333;
+}

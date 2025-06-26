@@ -1,0 +1,72 @@
+/* Header Container */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+    font-family: Arial, sans-serif;
+    position: fixed; /* Fix the header at the top */
+    top: 0; /* Position it at the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    z-index: 1000; /* Set a high z-index to ensure it stays above other elements */
+}
+
+body {
+    padding-top: 60px; /* Adjust this value based on the header's height */
+}
+
+/* Logo */
+.header-logo img {
+    width: 200px;
+    /* background-color: #c50505; */
+    margin: 4px;
+}
+
+/* Navigation Links */
+.header-nav {
+    display: flex;
+    gap: 30px;
+    color: red;
+}
+
+.nav-link {
+    color: #A78BFA;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    /* background-color: violet; */
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: #b31515;
+}
+
+.nav-link:hover {
+    color: #c50505;
+}
+
+/* Search Bar */
+.header-search .search-input {
+    width: 250px;
+    border-radius: 20px;
+}
+
+.search-input input {
+    padding-left: 15px;
+    border-radius: 20px;
+}
+
+.admin-log{
+    border-radius: 10px;
+    background-color: #A78BFA;
+    padding: 9px;
+}
+
+.admin-log-link{
+    color: #e0e0e0;
+    font-weight: bold;
+}

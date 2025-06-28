@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, Menu, Avatar, Typography, Dropdown } from 'antd';
 import { UserOutlined, DownOutlined } from '@ant-design/icons';
-import Logo from '../../../../assets/skill-mart-logo.png'
+import Logo from '../../../../assets/salonsync-logo.png'
 import './style/AdminHeader.css';
 import SubMenu from 'antd/es/menu/SubMenu';
 
@@ -24,8 +24,6 @@ const AdminHeader: React.FC = () => {
         <div className="admin-header">
             <div className="logo">
                 <a href='/'><img src={Logo} alt="Logo" className="logo-text" /></a>
-                {/* <Text className="logo-text">SkillMart</Text>
-                <Text className="logo-subtext">Admin Panel</Text> */}
             </div>
 
             <Menu theme="light" mode="horizontal"  className="header-menu">

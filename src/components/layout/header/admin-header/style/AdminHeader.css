@@ -2,15 +2,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 100px 0 80px;
+    padding: 10px 40px;
     background-color: white;
     border-bottom: 1px solid #e0e0e0;
     font-family: Arial, sans-serif;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
+    position: fixed; /* Fix the header at the top */
+    top: 0; /* Position it at the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    z-index: 1000; /* Set a high z-index to ensure it stays above other elements */
 }
 
 .logo {
@@ -19,7 +19,8 @@
 }
 
 .logo-text {
-    width: 120px;
+    width: 200px;
+    margin: 4px;
 }
 
 .logo-subtext {

@@ -1,0 +1,98 @@
+/* Center the container in the middle of the screen */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #f5faff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Logo positioning and sizing */
+.logo-img {
+    width: 200px;
+    margin-bottom: 20px;
+
+    position: absolute;
+    top: 20px;
+    left: 70px;
+    /* width: 100px; */
+}
+
+/* Title styling */
+.title {
+    color: #1e80a0;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* Field label color */
+.label {
+    color: #7D7D7D;
+    font-weight: 500;
+}
+
+/* Button styling */
+.btn-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #A78BFA;
+    color: white;
+    width: 200px;
+    border-radius: 40px;
+    font-weight: 500;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #7e52ff !important;
+    color: white !important;
+}
+
+/* Link text styling */
+.txt {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #7D7D7D;
+}
+
+.sign-up-link {
+    color: #61C6E8;
+    font-weight: 500;
+}
+
+.sign-up-link:hover {
+    color: #52b0d0;
+    text-decoration: underline;
+}
+
+/* Form field spacing */
+.fields .ant-form-item {
+    margin-bottom: 20px;
+}
+
+.signup-link {
+    color: #6d3cff !important;
+    text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 10px;
+    }
+
+    .logo-img {
+        width: 100px;
+    }
+
+    .btn {
+        width: 100px;
+    }
+}

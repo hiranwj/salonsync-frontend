@@ -11,15 +11,15 @@ const Benefits: React.FC = () => {
     return (
         <section className="benefitsSection">
             
-            <Row gutter={[16, 16]} justify="center" className="benefitsRow">
-                <Col span={5} className='benifitsName'>
+            <Row gutter={[40, 40]} justify="center" className="benefitsRow">
+                <Col span={4} className='benifitsName'>
                     <Title level={3} className="benefitsTitle">
                         Be Smart to Use 
                     </Title>
                     <span className="benefitsTitle">with SalonSync</span>
                     <div className="services-underline"></div>
                 </Col>
-                <Col span={18}>
+                <Col span={19}>
                     <Row className="benefitItem">
                         <MdDraw className="benefitIcon" />
                         <div>
@@ -43,7 +43,7 @@ const Benefits: React.FC = () => {
                     </Row>
                 </Col>
                 <Col span={1}>
-                    <img src={gearImage} alt="Brush" className="machine-img" />
+                    <img src={gearImage} alt="Brush" className="hair-machine-img" />
                 </Col>
             </Row>
         </section>

@@ -55,7 +55,10 @@
   padding: 50px 20px;
   text-align: left;
   margin-left: 100px;
+  /* display: flex;
+  justify-content: space-around; */
 }
+
 
 .benefitsTitle {
   font-size: 24px;
@@ -103,13 +106,14 @@
   font-size: 16px;
   color: #333;
 }
-.machine-img {
-  position: relative;
-  left: 20.25vw;
-  width: 130px;
 
+.hair-machine-img {
+    /* width: 100%; */
+    height: auto;
+    object-fit: contain;
+    padding-left: 1250px;
 }
 
 .benifitsName{
-  margin-top: 20px;
-}
+  margin-top: 100px;
+} 

@@ -1,6 +1,7 @@
 .container {
     max-width: 500px;
-    margin: auto;
+    padding-top: 5px !important;
+     /*background-color: #9cde40 !important;*/
 }
 
 .logo-img {
@@ -10,11 +11,13 @@
     width: 200px;
 }
 
-.machine-img {
+.hair-machine-img {
     position: absolute;
-    bottom: 30px;
-    left: 0px;    /* was right: 20px, now moved to left */
-    width: 150px;
+    left: 0;
+    top: 30%;
+    transform: translateX(-63%);
+    max-width: 200px;
+    height: auto;
 }
 
 .btn-div {
@@ -49,7 +52,7 @@
 .title {
     text-align: center;
     color: #A78BFA !important;
-    /*padding-bottom: 30px;*/
+    padding-bottom: 30px;
 }
 
 .label {
@@ -65,15 +68,35 @@
     text-align: center;
 }
 
+.login-link {
+    color: #6d3cff !important;
+    text-decoration: none;
+}
+
+.signup-btn {
+    background-color: #A78BFA;
+    color: white;
+    width: 200px;
+    border-radius: 40px;
+    font-weight: 500;
+    border: none;
+}
+
+.signup-btn:hover {
+    background-color: #7e52ff !important;
+    color: white !important;
+}
+
 @media (max-width: 900px) {
     .logo-img {
         display: block;          /* make it visible */
         margin: 20px auto 0;     /* top margin 20px, auto horizontal to center */
         width: 150px;            /* or your desired width */
         height: auto;            /* keep aspect ratio */
+        /*background-color: #6d3cff !important;*/
     }
 
-    .machine-img {
+    .hair-machine-img {
         display: none;
     }
 

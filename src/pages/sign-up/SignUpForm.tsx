@@ -22,7 +22,7 @@ const SignupForm: React.FC = () => {
     return (
         <div className='container'>
             <img src={Logo} alt="Logo" className='logo-img' />
-            <img src={Machine} alt="Settings" className='machine-img' />
+            <img src={Machine} alt="Settings" className='hair-machine-img' />
 
             <Title level={3} className='title'>
                 Sign Up
@@ -87,7 +87,7 @@ const SignupForm: React.FC = () => {
                             name="password"
                             rules={[{ required: true, message: 'Please enter password' }]}
                         >
-                            <Input className="responsive-input" />
+                            <Input.Password className="responsive-input" />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={24} md={24} lg={12} xl={12}>
@@ -96,7 +96,7 @@ const SignupForm: React.FC = () => {
                             name="confirmPassword"
                             rules={[{ required: true, message: 'Please enter confirm password' }]}
                         >
-                            <Input className="responsive-input" />
+                            <Input.Password className="responsive-input" />
                         </Form.Item>
                     </Col>
                 </Row>
@@ -118,7 +118,6 @@ const SignupForm: React.FC = () => {
                 <Form.Item>
                     <div className='btn-div'>
                         <Space>
-                            <label className='login-text'>Already have an account? <a>Login</a></label>
                             <Button
                                 className='signup-btn'
                                 htmlType="submit"
@@ -129,6 +128,13 @@ const SignupForm: React.FC = () => {
 
                     </div>
                 </Form.Item>
+                <Row>
+                    <Col span={24} className='text-center'>
+                        <Text className='text'>
+                            Already have an account? <a className='login-link' href="/login">Log In</a>
+                        </Text>
+                    </Col>
+                </Row>
             </Form>
         </div>
     );

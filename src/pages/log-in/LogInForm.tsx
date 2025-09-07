@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, Input, Button, Typography, Row, Col, notification } from 'antd';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import Logo from '../../assets/salonsync-logo.png';
+import Machine from '../../assets/right-brush.png'
 import './style/LogInForm.css';
 // import { LoginModel } from '../../models/login-model.ts';
 // import { loginAdmin } from '../../service/login-management-service';
@@ -43,8 +44,8 @@ const LoginForm: React.FC = () => {
 
     return (
         <div className="container">
-            <img src={Logo} alt="Logo" className="logo-img" />
-
+            <a href="/"><img src={Logo} alt="Logo" className="logo-img" /></a>
+            <img src={Machine} alt="Settings" className='right-brush-img' />
             <Title level={3} className="title">
                 Log In
             </Title>

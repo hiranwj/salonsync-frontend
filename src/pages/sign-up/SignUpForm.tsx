@@ -21,7 +21,7 @@ const SignupForm: React.FC = () => {
 
     return (
         <div className='container'>
-            <img src={Logo} alt="Logo" className='logo-img' />
+            <a href="/"><img src={Logo} alt="Logo" className="logo-img" /></a>
             <img src={Machine} alt="Settings" className='hair-machine-img' />
 
             <Title level={3} className='title'>

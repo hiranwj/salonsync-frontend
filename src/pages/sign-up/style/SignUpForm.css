@@ -15,9 +15,10 @@
     position: absolute;
     left: 0;
     top: 30%;
-    transform: translateX(-63%);
+    transform: translateX(-90%);
     max-width: 200px;
     height: auto;
+    /* background-color: #6d3cff; */
 }
 
 .btn-div {

@@ -17,7 +17,18 @@
     position: absolute;
     top: 20px;
     left: 70px;
+    /* background-color: #61C6E8; */
     /* width: 100px; */
+}
+
+.right-brush-img {
+    position: absolute;
+    left: 0;
+    top: 30%;
+    transform: translateX(752%);
+    max-width: 150px;
+    height: auto;
+    /* background-color: #6d3cff; */
 }
 
 /* Title styling */

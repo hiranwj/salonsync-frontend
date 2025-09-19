@@ -1,4 +1,4 @@
-import { DisplayErrorNotification } from "../utill/display-error-message";
+import { displayErrorMessage } from "../utill/display-error-message";
 import AxiosService from "../service/axios-service.ts";
 import BackendEndpoints from "../constants/backend-endpoints";
 import type { GetLaborerModel, LaborerModel } from "../models/stylist-model.ts";
@@ -12,7 +12,7 @@ export const createNewStylist = async (reqBody: LaborerModel): Promise<LaborerMo
         return apiResponse.data;
     } catch (apiError:any) {
         const errorMessage =apiError.response.data.message
-        DisplayErrorNotification(errorMessage);
+        displayErrorMessage(errorMessage);
         throw apiError;
     }
 }

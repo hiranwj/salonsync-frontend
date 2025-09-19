@@ -16,14 +16,14 @@ const AdminHeader: React.FC = () => {
                 <a href='/setting'><Menu.Item key="profile">Manage Master Data</Menu.Item></a> 
             </SubMenu>
             <Menu.Divider />
-            <Menu.Item key="3">Logout</Menu.Item>
+            <a href='/login'><Menu.Item key="3">Logout</Menu.Item></a> 
         </Menu>
     );
 
     return (
         <div className="admin-header">
             <div className="logo">
-                <a href='/'><img src={Logo} alt="Logo" className="logo-text" /></a>
+                <a href='/admin-dashboard'><img src={Logo} alt="Logo" className="logo-text" /></a>
             </div>
 
             <Menu theme="light" mode="horizontal"  className="header-menu">

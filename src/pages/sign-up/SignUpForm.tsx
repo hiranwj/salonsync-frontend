@@ -1,22 +1,60 @@
-import React from 'react';
-import { Form, Input, Checkbox, Button, Typography, Row, Col, Select, Space } from 'antd';
+import React, { useState } from 'react';
+import { Form, Input, Checkbox, Button, Typography, Row, Col, Select, Space, notification, message } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+
 import Logo from '../../assets/salonsync-logo.png'
 import Machine from '../../assets/left-machine.png'
 import './style/SignUpForm.css'
 
+import { signinAdmin } from "../../service/signin-management-service";
+import type { SigninModel } from "../../models/signin-model";
+import { displayErrorMessage } from "../../utill/display-error-message";
+
 const { Title, Text } = Typography;
 
-interface FormValues {
-    name: string;
-    contactNumber: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-}
+    const SignupForm: React.FC = () => {
+    const navigate = useNavigate(); // Initialize navigation hook
+    const [loading, setLoading] = useState(false);
 
-const SignupForm: React.FC = () => {
-    const onFinish = (values: FormValues) => {
-        console.log('Form Values:', values);
+    const onFinish = async (values: { name: string; email: string; password: string; role: string; contactNumber: string; }) => {
+        setLoading(true);
+        try {
+        const reqBody: SigninModel = {
+            name: values.name,
+            email: values.email,
+            password: values.password,
+            role: values.role,
+            contactNumber: values.contactNumber,
+        };
+
+        const response = await signinAdmin(reqBody);
+
+        console.log("Signup response:", response);
+
+        const successMessage = response?.Message || "";
+        if (successMessage.includes("saved successfully")) {
+        notification.success({
+            message: "Signup Successful",
+            description: "Admin signed up successfully.",
+        });
+        navigate("/login");
+        } else {
+            displayErrorMessage("Signup Failed", "Invalid data");
+        }
+
+        } catch (error) {
+        if (axios.isAxiosError(error)) {
+            const serverMessage =
+            (error.response?.data && (error.response.data as any).message) || undefined;
+            displayErrorMessage("Signup Failed", "Invalid data 3");
+        } else {
+            displayErrorMessage("Signup Failed", "Unexpected error occurred.");
+        }
+        console.error("Signup error:", error);
+        } finally {
+        setLoading(false);
+        }
     };
 
     return (
@@ -51,7 +89,7 @@ const SignupForm: React.FC = () => {
                     <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                         <Form.Item
                             label={<span className='label'>Phone Number</span>}
-                            name="phoneNumber"
+                            name="contactNumber"
                             rules={[{ required: true, message: 'Please enter your phone number' }]}
                         >
                             <Input className="responsive-input"
@@ -73,7 +111,7 @@ const SignupForm: React.FC = () => {
                     <Col span={24}>
                         <Form.Item
                             label={<span className='label'>Email</span>}
-                            name="lastName"
+                            name="email"
                             rules={[{ required: true, message: 'Please enter your email' }]}
                         >
                             <Input className="responsive-input" />
@@ -104,13 +142,12 @@ const SignupForm: React.FC = () => {
                     <Col span={12}>
                         <Form.Item
                             label={<span className='label'>Role</span>}
-                            name="typeOfWork"
+                            name="role"
                             rules={[{ required: true, message: 'Please enter your role' }]}
                         >
                             <Select>
-                                <Select.Option value="1">Customer</Select.Option>
-                                <Select.Option value="2">Staff</Select.Option>
-
+                                <Select.Option value="CUSTOMER">Customer</Select.Option>
+                                <Select.Option value="STAFF">Staff</Select.Option>
                             </Select>
                         </Form.Item>
                     </Col>

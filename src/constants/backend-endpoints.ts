@@ -1,35 +1,22 @@
 const BASE_URL = "http://localhost:8080/api/v1";
 
 const BackendEndpoints = {
-    LOGIN_ADMIN: `${BASE_URL}/auth/adminData/login`,
+    // Admin, Staff, Customer
+    LOGIN_ADMIN: `${BASE_URL}/auth/adminData/login`,    // POST
+    SIGNIN_ADMIN: `${BASE_URL}/auth/adminData/signup`,  // POST
 
-    //stylist managemnt
-    ADD_NEW_STYLIST:"api/v1/user/adduser",
-    GET_ALL_ACTIVE_LABORERS: "api/v1/user/findAllActiveUsers",
-    DELETE_LABORER: "api/v1/user/removeUserById",
-    UPDATE_LABORER:"api/v1/user/alterUserById",
-    FIND_USER_BY_NAME: "api/v1/user/findAllActiveLikeByFirstNameOrLastName",
-    FIND_LABOR_BY_AREA: "api/v1/user/findAllByServiceArea",
-    FIND_LABOR_BY_TYPE: "api/v1/user/findAllByServiceType",
+    // Stylist
+    ADD_NEW_STYLIST:"/stylistData",          // POST
+    // GET_ALL_STYLISTS: "/stylistData",    // GET
+    // GET_A_STYLIST: "/stylist?id={1}",    // GET
+    // UPDATE_STYLIST:"/stylist?id={1}",    // PUT
     
-    
-
-    //service area
-    // ADD_NEW_SERVICE_AREA:"api/v1/serviceArea/addServiceArea",
-    // GET_ALL_SERVICE_AREAS:"api/v1/serviceArea/findAllServiceArea",
-    // DELETE_SERVICE_AREA: "api/v1/serviceArea/removeServiceAreaById",
-
-
-    //service type
-    //  ADD_NEW_SERVICE_TYPE:"api/v1/serviceType/addServiceType",
-    //  GET_ALL_SERVICE_TYPES:"api/v1/serviceType/findAllServiceType",
-    // DELETE_SERVICE_TYPE: "api/v1/serviceType/removeServiceTypeById",
-     
-    // rate
-    GET_ALL_USER_BY_RATE: "api/v1/rate/findUserOrderByRateStarCount",
-    // ADD_NEW_RATE:"api/v1/rate/addRate",
-    //login
-    // LOGIN_USER:"api/v1/auth/login"
+    // Appointmnet
+    // ADD_NEW_APPOINTMENT:"/appointment",                      // POST
+    // GET_ALL_APPOINTMENT:"/appointments",                     // GET
+    // UPDATE_AN_APPOINTMENT:"/appointment?id={2}",             // PUT
+    // DELETE_AN_APPOINTMENT: "/appointment?id={3}",            // DELETE
+    // GET_APPOINTMENT_HISTORY: "/appointments/user?id={2}",    // GET
 } 
 
 export default BackendEndpoints;

@@ -6,8 +6,6 @@ import axios from "axios";
 import Logo from '../../assets/salonsync-logo.png';
 import Machine from '../../assets/right-brush.png'
 import './style/LogInForm.css';
-// import { LoginModel } from '../../models/login-model.ts';
-// import { loginAdmin } from '../../service/login-management-service';
 
 import { loginAdmin } from "../../service/login-management-service";
 import type { LoginModel } from "../../models/login-model";
@@ -55,36 +53,6 @@ const LoginForm: React.FC = () => {
         setLoading(false);
         }
     };
-
-    // const onFinish = async (values: { email: string; password: string }) => {
-    //     console.log('Form Values:', values);
-
-    //     // const reqBody: LoginModel = {
-    //     //     email: values.email,
-    //     //     password: values.password,
-    //     // };
-
-    //     try {
-    //         const response = await loginAdmin(reqBody);
-    //         console.log('Login successful:', response);
-
-    //         if (response) {
-    //             notification.success({
-    //                 message: "Login Successful",
-    //                 description: "Admin logged in successfully.",
-    //             });
-
-    //             // Navigate to admin-dashboard after successful login
-    //             navigate('/admin-dashboard');
-    //         }
-    //     } catch (error) {
-    //         console.error('Login failed:', error);
-    //         notification.error({
-    //             message: "Login Failed",
-    //             description: "Invalid email or password. Please try again.",
-    //         });
-    //     }
-    // };
 
     return (
         <div className="container">

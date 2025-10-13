@@ -1,5 +1,4 @@
 import { Card, Col } from 'antd'
-// import React, { FC } from 'react'
 import type { FC } from 'react';
 
 

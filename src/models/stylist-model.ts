@@ -1,4 +1,4 @@
-export interface LaborerModel {
+export interface StylistModel {
     id?:string,
     firstName:string,
     lastName:string,
@@ -12,6 +12,6 @@ export interface LaborerModel {
     links:string
 }
 
-export interface GetLaborerModel extends LaborerModel{
+export interface GetStylistModel extends StylistModel{
     response:[]
 }

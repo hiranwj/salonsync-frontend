@@ -14,12 +14,12 @@ const UserHeader: React.FC = () => {
 
             <div className="header-nav">
                 <a href="/" className="nav-link"><Link to={'/'}>Home</Link></a>
-                <a href="/find-laborer" className="nav-link active"><Link to={'/find-laborer'}>Book an appointment</Link></a>
+                <a href="/find-stylist" className="nav-link active"><Link to={'/book-an-apointment'}>Book an appointment</Link></a>
                 <a href="/about" className="nav-link"><Link to={'/about'}>About</Link></a>
             </div>
 
             <div className="header-search">
-            <a href="/login" className="nav-link active admin-log"><Link className='admin-log-link' to={'/login'}>Log As Admin</Link></a>
+            <a href="/login" className="nav-link active admin-log"><Link className='admin-log-link' to={'/login'}>Log In</Link></a>
                 {/* <Input 
                     placeholder="Search here" 
                     suffix={<SearchOutlined />} 

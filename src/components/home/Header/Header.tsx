@@ -11,7 +11,7 @@ const Header: React.FC = () => {
     const [searchValue, setSearchValue] = useState("");
     const navigate = useNavigate();
 
-    const searchLaborer = async () => {
+    const searchStylist = async () => {
         navigate("/find-stylist", { state: { search: searchValue } }
         );
     }
@@ -38,9 +38,9 @@ const Header: React.FC = () => {
                             //prefix={}
                             className="search-bar"
                             onChange={(e) => setSearchValue(e.target.value||"")} // Update state
-                            onPressEnter={searchLaborer}
+                            onPressEnter={searchStylist}
                         />
-                        <Button onClick={searchLaborer} className="search-button">
+                        <Button onClick={searchStylist} className="search-button">
                             <SearchOutlined />
                         </Button>
                     </div>

@@ -3,8 +3,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from './pages/homepage/HomePage.tsx'
 import SignupForm from './pages/sign-up/SignUpForm.tsx'
 import LoginForm from './pages/log-in/LogInForm.tsx';
-import './App.css'
 import AdminDashboard from './pages/admin-dashboard/AdminDashboard.tsx';
+import BookAppointment from './pages/book-appointment/BookAppointment.tsx';
+import './App.css'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path='/login' element={<LoginForm />} />
         <Route path='/signup' element={<SignupForm />} />
         <Route path='/admin-dashboard' element={<AdminDashboard />} />
+        <Route path="/book-an-apointment" element={<BookAppointment />} />
         <Route path="/" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>

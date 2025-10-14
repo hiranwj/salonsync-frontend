@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Typography, Card, Rate, } from 'antd';
 import './ServiceProviders.css';
-import { getAllLaborersByRating } from '../../../service/stylist-management-service.ts';
+import { getAllStylistsByRating } from '../../../service/stylist-management-service.ts';
 import stylist1 from "../../../assets/stylists/download (1).jpg";
 import stylist2 from "../../../assets/stylists/download.jpg";
 import stylist3 from "../../../assets/stylists/images (1).jpg";
 import stylist4 from "../../../assets/stylists/images.jpg";
 
 const { Title } = Typography;
-interface Laborer {
+interface Stylist {
     address: string;
     available: boolean;
     firstName: string;
@@ -23,21 +23,21 @@ interface Laborer {
 }
 
 const ServiceProviders: React.FC = () => {
-    const [providers, setProviders] = useState<Laborer[]>([]);
+    const [providers, setProviders] = useState<Stylist[]>([]);
     const images = [stylist1, stylist2, stylist3, stylist4];
     useEffect(() => {
-        // Fetch laborers and update the state
-        const fetchBestLaborers = async () => {
+        // Fetch stylists and update the state
+        const fetchBestStylists = async () => {
             try {
-                const laborers = await getAllLaborersByRating();
-                const limitedLaborers = laborers.response.slice(0, 4);
-                setProviders(limitedLaborers)
+                const stylists = await getAllStylistsByRating();
+                const limitedStylists = stylists.response.slice(0, 4);
+                setProviders(limitedStylists)
             } catch (error) {
-                console.error("Error fetching laborers:", error);
+                console.error("Error fetching stylists:", error);
             }
         };
 
-        fetchBestLaborers();
+        fetchBestStylists();
     }, []);
 
     return (

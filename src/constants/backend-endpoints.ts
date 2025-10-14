@@ -12,7 +12,7 @@ const BackendEndpoints = {
     // UPDATE_STYLIST:"/stylist?id={1}",    // PUT
     
     // Appointmnet
-    // ADD_NEW_APPOINTMENT:"/appointment",                      // POST
+    ADD_NEW_APPOINTMENT: `${BASE_URL}/appointment`,             // POST
     // GET_ALL_APPOINTMENT:"/appointments",                     // GET
     // UPDATE_AN_APPOINTMENT:"/appointment?id={2}",             // PUT
     // DELETE_AN_APPOINTMENT: "/appointment?id={3}",            // DELETE

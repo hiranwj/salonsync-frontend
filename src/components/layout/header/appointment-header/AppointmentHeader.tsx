@@ -2,13 +2,13 @@ import React from 'react';
 import { Layout, Menu, Avatar, Typography, Dropdown } from 'antd';
 import { UserOutlined, DownOutlined } from '@ant-design/icons';
 import Logo from '../../../../assets/salonsync-logo.png'
-import './style/AdminHeader.css';
+import './style/AppointmentHeader.css';
 import SubMenu from 'antd/es/menu/SubMenu';
 
 const { Header } = Layout;
 const { Text } = Typography;
 
-const AdminHeader: React.FC = () => {
+const AppointmentHeader: React.FC = () => {
     // Define the dropdown menu for user actions
     const menu = (
         <Menu>
@@ -26,7 +26,7 @@ const AdminHeader: React.FC = () => {
                 <a href='/homepage'><img src={Logo} alt="Logo" className="logo-text" /></a>
             </div>
 
-            <Menu theme="light" mode="horizontal"  className="header-menu">
+            {/* <Menu theme="light" mode="horizontal"  className="header-menu">
                 <a href='/admin-dashboard'  key="1">Dashboard</a>
                 <a href='/stylist-management' key="2" style={{ marginLeft: '30px', marginRight: '30px' }}> Stylist Management</a>
                 <a href='/report'>Reports</a>
@@ -39,9 +39,9 @@ const AdminHeader: React.FC = () => {
                         Administrator <DownOutlined />
                     </Text>
                 </Dropdown>
-            </div>
+            </div> */}
         </div>
     );
 };
 
-export default AdminHeader;
+export default AppointmentHeader;

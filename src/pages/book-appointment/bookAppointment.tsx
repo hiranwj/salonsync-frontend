@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Input, Select, DatePicker, TimePicker, Button, Card, Row, Col, message } from "antd";
+import { Form, Input, Checkbox, Select, DatePicker, TimePicker, Button, Card, Row, Col, message } from "antd";
 import { CalendarOutlined, ScissorOutlined, UserOutlined, ClockCircleOutlined } from "@ant-design/icons";
 // import AdminHeader from '../../components/layout/header/admin-header/AdminHeader';
 import AppointmentHeader from "../../components/layout/header/appointment-header/AppointmentHeader";
@@ -87,6 +87,17 @@ const BookAppointment: React.FC = () => {
     }
   };
 
+  const serviceOptions = [
+    "Hair Cutting",
+    "Bridal Hair",
+    "Facial",
+    "Makeup",
+    "Pedicure",
+    "Manicure",
+    "Dressing",
+    "Other",
+  ];
+
   return (
     <div style={{ padding: "60px 80px", background: "#fafafa", minHeight: "100vh" }}>
     <AppointmentHeader />
@@ -137,7 +148,7 @@ const BookAppointment: React.FC = () => {
             </Col>
           </Row>
 
-          <Row gutter={16}>
+          {/* <Row gutter={16}>
             <Col span={12}>
               <Form.Item
                 label="Select Service"
@@ -159,8 +170,34 @@ const BookAppointment: React.FC = () => {
                   <Option value="Other">Other</Option>
                 </Select>
               </Form.Item>
-            </Col>
+            </Col> */}
+
+{/*  */}
+
+            {/* <Row gutter={16}>
             <Col span={12}>
+              <Form.Item
+                label="Select Services"
+                name="serviceType"
+                rules={[{ required: true, message: "Please select at least one service" }]}
+              >
+                <Checkbox.Group style={{ width: "100%" }}>
+                  <Row>
+                    {serviceOptions.map((service) => (
+                      <Col span={24} key={service}>
+                        <Checkbox value={service}>
+                          <ScissorOutlined style={{ marginRight: "6px", color: "#7e57c2" }} />
+                          {service}
+                        </Checkbox>
+                      </Col>
+                    ))}
+                  </Row>
+                </Checkbox.Group>
+              </Form.Item>
+            </Col>
+
+
+            <Col span={12}> */}
               {/* <Form.Item
                 label="Preferred Stylist"
                 name="stylistId"
@@ -187,7 +224,7 @@ const BookAppointment: React.FC = () => {
                 </Select>
               </Form.Item> */}
 
-              <Form.Item
+              {/* <Form.Item
                 label="Preferred Stylist"
                 name="stylistId"
                 rules={[{ required: true, message: "Please select a stylist" }]}
@@ -195,13 +232,56 @@ const BookAppointment: React.FC = () => {
                 <Select placeholder="Choose stylist" loading={loadingStylists}>
                     {Array.isArray(stylists) && stylists.map(stylist => (
                         <Option key={stylist.id} value={stylist.id}>
-                            {stylist.name}
+                            {stylist.name} - {stylist.specialization}
                         </Option>
                     ))}
                 </Select>
             </Form.Item>
             </Col>
-          </Row>
+          </Row> */}
+
+{/*  */}
+
+<Row gutter={16}>
+  <Col span={12}>
+    <Form.Item
+      label="Select Services"
+      name="serviceType"
+      rules={[{ required: true, message: "Please select at least one service" }]}
+    >
+      <Checkbox.Group style={{ width: "100%" }}>
+        <Row gutter={[16, 8]}>
+          {serviceOptions.map((service, index) => (
+            <Col span={12} key={index}>
+              <Checkbox value={service}>
+                {/* <ScissorOutlined style={{ marginRight: "6px", color: "#7e57c2" }} /> */}
+                {service}
+              </Checkbox>
+            </Col>
+          ))}
+        </Row>
+      </Checkbox.Group>
+    </Form.Item>
+  </Col>
+
+  <Col span={12}>
+    <Form.Item
+      label="Preferred Stylist"
+      name="stylistId"
+      rules={[{ required: true, message: "Please select a stylist" }]}
+    >
+      <Select placeholder="Choose stylist" loading={loadingStylists}>
+        {Array.isArray(stylists) &&
+          stylists.map((stylist) => (
+            <Option key={stylist.id} value={stylist.id}>
+              {stylist.name} - {stylist.specialization}
+            </Option>
+          ))}
+      </Select>
+    </Form.Item>
+  </Col>
+</Row>
+
 
           <Row gutter={16}>
             <Col span={12}>

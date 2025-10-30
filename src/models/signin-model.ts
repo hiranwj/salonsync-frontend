@@ -3,6 +3,7 @@ export interface SigninModel {
     email: string;
     password: string;
     role: string;
+    gender: string;
     contactNumber: string;
 }
 

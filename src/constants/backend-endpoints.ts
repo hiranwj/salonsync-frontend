@@ -5,6 +5,9 @@ const BackendEndpoints = {
     LOGIN_ADMIN: `${BASE_URL}/auth/adminData/login`,    // POST
     SIGNIN_ADMIN: `${BASE_URL}/auth/adminData/signup`,  // POST
 
+    // LOGIN_CUSTOMER: `${BASE_URL}/auth/customerData/login`,    // POST
+    // SIGNIN_CUSTOMER: `${BASE_URL}/auth/customerData/signup`,  // POST
+
     // Stylist
     ADD_NEW_STYLIST:"/stylistData",          // POST
     // GET_ALL_STYLISTS: "/stylistData",    // GET

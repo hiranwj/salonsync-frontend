@@ -17,40 +17,93 @@ const LoginForm: React.FC = () => {
     const navigate = useNavigate(); // Initialize navigation hook
     const [loading, setLoading] = useState(false);
 
+    // const onFinish = async (values: { email: string; password: string }) => {
+    //     setLoading(true);
+    //     try {
+    //     const reqBody: LoginModel = {
+    //         email: values.email,
+    //         password: values.password,
+    //     };
+
+    //     const response = await loginAdmin(reqBody);
+
+    //     const token = response.Data?.token;
+
+
+    //     if (token) {
+    //         localStorage.setItem("token", token);
+    //         notification.success({
+    //         message: "Login Successful",
+    //         description: "Admin logged in successfully.",
+    //         });
+    //         navigate("/admin-dashboard");
+    //     } else {
+    //         displayErrorMessage("Login Failed", "Invalid email or password");
+    //     }
+    //     } catch (error) {
+    //     if (axios.isAxiosError(error)) {
+    //         const serverMessage =
+    //         (error.response?.data && (error.response.data as any).message) || undefined;
+    //         displayErrorMessage("Login Failed", "Invalid email or password");
+    //     } else {
+    //         displayErrorMessage("Login Failed", "Unexpected error occurred.");
+    //     }
+    //     console.error("Login error:", error);
+    //     } finally {
+    //     setLoading(false);
+    //     }
+    // };
+
     const onFinish = async (values: { email: string; password: string }) => {
         setLoading(true);
         try {
-        const reqBody: LoginModel = {
+            const reqBody: LoginModel = {
             email: values.email,
             password: values.password,
-        };
+            };
 
-        const response = await loginAdmin(reqBody);
+            const response = await loginAdmin(reqBody);
 
-        const token = response.Data?.token;
+            const token = response.Data?.token;
+            const role = response.Data?.role;
+            const name = response?.Data?.name || "";
+            const contactNumber = response?.Data?.contactNumber || "";
 
-
-        if (token) {
+            if (token && role) {
+            // Save token + role in localStorage
             localStorage.setItem("token", token);
+            localStorage.setItem("role", role);
+            localStorage.setItem("name", name);
+            localStorage.setItem("contactNumber", contactNumber);
+
             notification.success({
-            message: "Login Successful",
-            description: "Admin logged in successfully.",
+                message: "Login Successful",
+                description: `${role} logged in successfully.`,
             });
-            navigate("/admin-dashboard");
-        } else {
+
+            // Navigate based on role
+            if (role === "CUSTOMER") {
+                navigate("/book-an-apointment");
+            } else if (role === "ADMIN") {
+                navigate("/admin-dashboard");
+            } else {
+                navigate("/"); // fallback
+            }
+            } else {
             displayErrorMessage("Login Failed", "Invalid email or password");
-        }
+            }
         } catch (error) {
-        if (axios.isAxiosError(error)) {
+            if (axios.isAxiosError(error)) {
             const serverMessage =
-            (error.response?.data && (error.response.data as any).message) || undefined;
-            displayErrorMessage("Login Failed", "Invalid email or password");
-        } else {
+                (error.response?.data && (error.response.data as any).message) ||
+                undefined;
+            displayErrorMessage("Login Failed", serverMessage || "Invalid credentials");
+            } else {
             displayErrorMessage("Login Failed", "Unexpected error occurred.");
-        }
-        console.error("Login error:", error);
+            }
+            console.error("Login error:", error);
         } finally {
-        setLoading(false);
+            setLoading(false);
         }
     };
 
@@ -66,6 +119,7 @@ const LoginForm: React.FC = () => {
                 layout="vertical"
                 onFinish={onFinish}
                 requiredMark={false}
+                autoComplete="off" 
                 className="fields"
             >
                 <Row>

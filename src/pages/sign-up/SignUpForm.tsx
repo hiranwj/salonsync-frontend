@@ -16,46 +16,75 @@ const { Title, Text } = Typography;
     const SignupForm: React.FC = () => {
     const navigate = useNavigate(); // Initialize navigation hook
     const [loading, setLoading] = useState(false);
+    const [selectedRole, setSelectedRole] = useState<string>(""); // track role selection
 
-    const onFinish = async (values: { name: string; email: string; password: string; role: string; contactNumber: string; }) => {
-        setLoading(true);
+    const signupUser = async (userData: any) => {
         try {
-        const reqBody: SigninModel = {
+            const response = await axios.post(
+            "http://localhost:8080/api/v1/userData",
+            userData,
+            {
+                headers: {
+                "Content-Type": "application/json",
+                },
+            }
+            );
+
+            return response.data;
+        } catch (error: any) {
+            throw error;
+        }
+    };
+
+    const onFinish = async (values: any) => {
+        setLoading(true);
+
+        if (values.password !== values.confirmPassword) {
+            notification.error({
+            message: "Signup Failed",
+            description: "Passwords do not match.",
+            });
+            setLoading(false);
+            return;
+        }
+
+        const reqBody = {
             name: values.name,
             email: values.email,
             password: values.password,
             role: values.role,
+            gender: values.gender,
             contactNumber: values.contactNumber,
         };
 
-        const response = await signinAdmin(reqBody);
+        try {
+            const response = await signupUser(reqBody);
+            console.log("Signup response:", response);
 
-        console.log("Signup response:", response);
-
-        const successMessage = response?.Message || "";
-        if (successMessage.includes("saved successfully")) {
-        notification.success({
+            notification.success({
             message: "Signup Successful",
-            description: "Admin signed up successfully.",
-        });
-        navigate("/login");
-        } else {
-            displayErrorMessage("Signup Failed", "Invalid data");
-        }
+            description: "User signed up successfully.",
+            });
 
-        } catch (error) {
-        if (axios.isAxiosError(error)) {
-            const serverMessage =
-            (error.response?.data && (error.response.data as any).message) || undefined;
-            displayErrorMessage("Signup Failed", "Invalid data 3");
-        } else {
-            displayErrorMessage("Signup Failed", "Unexpected error occurred.");
-        }
-        console.error("Signup error:", error);
+            navigate("/login");
+        } catch (error: any) {
+            const errorMsg =
+            error.response?.data || "Unexpected error occurred. Please try again.";
+            notification.error({
+            message: "Signup Failed",
+            description: errorMsg,
+            });
+            console.error("Signup error:", error);
         } finally {
-        setLoading(false);
+            setLoading(false);
         }
     };
+
+
+    // Gender options based on role
+    const genderOptions = selectedRole === "STAFF"
+        ? ["Male", "Female"]
+        : ["Male", "Female", "Other"];
 
     return (
         <div className='container'>
@@ -71,6 +100,7 @@ const { Title, Text } = Typography;
                 layout="vertical"
                 onFinish={onFinish}
                 requiredMark={false}
+                autoComplete="off" 
                 initialValues={{
                     agreement: false,
                 }}
@@ -96,6 +126,7 @@ const { Title, Text } = Typography;
                                 addonBefore="+94"
                                 inputMode="numeric"
                                 pattern="[0-9]*"
+                                maxLength={9}
                                 onKeyPress={(event) => {
                                     if (!/^[0-9]$/.test(event.key)) {
                                         event.preventDefault();
@@ -139,15 +170,30 @@ const { Title, Text } = Typography;
                     </Col>
                 </Row>
                 <Row gutter={16}>
-                    <Col span={12}>
+                    <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                         <Form.Item
                             label={<span className='label'>Role</span>}
                             name="role"
-                            rules={[{ required: true, message: 'Please enter your role' }]}
+                            rules={[{ required: true, message: 'Please select your role' }]}
                         >
-                            <Select>
+                            <Select onChange={(value) => setSelectedRole(value)}>
                                 <Select.Option value="CUSTOMER">Customer</Select.Option>
                                 <Select.Option value="STAFF">Staff</Select.Option>
+                            </Select>
+                        </Form.Item>
+                    </Col>
+                    <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                        <Form.Item
+                            label={<span className='label'>Gender</span>}
+                            name="gender"
+                            rules={[{ required: true, message: 'Please select your gender' }]}
+                        >
+                            <Select>
+                                {genderOptions.map((gender) => (
+                                    <Select.Option key={gender} value={gender}>
+                                        {gender}
+                                    </Select.Option>
+                                ))}
                             </Select>
                         </Form.Item>
                     </Col>

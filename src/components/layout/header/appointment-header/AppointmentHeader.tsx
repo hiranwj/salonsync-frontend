@@ -1,14 +1,19 @@
 import React from 'react';
-import { Layout, Menu, Avatar, Typography, Dropdown } from 'antd';
+import { Layout, Menu, Avatar, Typography, Dropdown, Button } from 'antd';
 import { UserOutlined, DownOutlined } from '@ant-design/icons';
 import Logo from '../../../../assets/salonsync-logo.png'
 import './style/AppointmentHeader.css';
 import SubMenu from 'antd/es/menu/SubMenu';
+import { LogoutOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;
 const { Text } = Typography;
 
 const AppointmentHeader: React.FC = () => {
+    const handleLogout = () => {
+        window.location.href = '/login';
+    };
+
     // Define the dropdown menu for user actions
     const menu = (
         <Menu>
@@ -22,9 +27,27 @@ const AppointmentHeader: React.FC = () => {
 
     return (
         <div className="admin-header">
-            <div className="logo">
-                <a href='/homepage'><img src={Logo} alt="Logo" className="logo-text" /></a>
-            </div>
+            {/* <div className="header-content"> */}
+                <div className="logo">
+                    <a href='/homepage'><img src={Logo} alt="Logo" className="logo-text" /></a>
+                </div>
+                <div className="logout-btn">
+                    {/* <Button type="logout-btn" danger 
+                    onClick={handleLogout}>
+                        Logout
+                    </Button> */}
+                    <Button
+                        type="primary"
+                        size="large"
+                        onClick={handleLogout}
+                        className="logout-btn"
+                        
+                        >
+                        Logout
+                    </Button>
+                </div>
+            {/* </div> */}
+
 
             {/* <Menu theme="light" mode="horizontal"  className="header-menu">
                 <a href='/admin-dashboard'  key="1">Dashboard</a>

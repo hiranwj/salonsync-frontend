@@ -201,6 +201,17 @@ const BookAppointment: React.FC = () => {
     { name: "Trending", price: 3000 },
   ];
 
+  const handleCancel = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("role");
+        localStorage.removeItem("name");
+        localStorage.removeItem("contactNumber");
+
+        // Optionally clear everything (uncomment if needed)
+        // localStorage.clear();
+
+        window.location.href = '/homepage';
+    };
 
   return (
     <div style={{ padding: "60px 80px", background: "#fafafa", minHeight: "100vh" }}>
@@ -407,9 +418,10 @@ const BookAppointment: React.FC = () => {
                     borderRadius: "8px",
                     padding: "0 30px",
                     }}
-                    onClick={() => {
-                    window.location.href = "/homepage";
-                    }}
+                    // onClick={() => {
+                    // window.location.href = "/homepage";
+                    // }}
+                    onClick={handleCancel}
                     >
                     Cancel
                 </Button>

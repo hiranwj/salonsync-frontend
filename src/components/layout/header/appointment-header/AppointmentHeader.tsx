@@ -10,10 +10,6 @@ const { Header } = Layout;
 const { Text } = Typography;
 
 const AppointmentHeader: React.FC = () => {
-    const handleLogout = () => {
-        window.location.href = '/login';
-    };
-
     // Define the dropdown menu for user actions
     const menu = (
         <Menu>
@@ -25,17 +21,24 @@ const AppointmentHeader: React.FC = () => {
         </Menu>
     );
 
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("role");
+        localStorage.removeItem("name");
+        localStorage.removeItem("contactNumber");
+
+        // Optionally clear everything (uncomment if needed)
+        // localStorage.clear();
+
+        window.location.href = '/login';
+    };
+
     return (
         <div className="admin-header">
-            {/* <div className="header-content"> */}
                 <div className="logo">
                     <a href='/homepage'><img src={Logo} alt="Logo" className="logo-text" /></a>
                 </div>
                 <div className="logout-btn">
-                    {/* <Button type="logout-btn" danger 
-                    onClick={handleLogout}>
-                        Logout
-                    </Button> */}
                     <Button
                         type="primary"
                         size="large"
@@ -46,8 +49,6 @@ const AppointmentHeader: React.FC = () => {
                         Logout
                     </Button>
                 </div>
-            {/* </div> */}
-
 
             {/* <Menu theme="light" mode="horizontal"  className="header-menu">
                 <a href='/admin-dashboard'  key="1">Dashboard</a>

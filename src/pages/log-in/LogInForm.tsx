@@ -78,7 +78,7 @@ const LoginForm: React.FC = () => {
 
             notification.success({
                 message: "Login Successful",
-                description: `${role} logged in successfully.`,
+                description: `${name} logged in successfully.`,
             });
 
             // Navigate based on role

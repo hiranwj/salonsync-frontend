@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Input, Button, Checkbox, Radio, Row, Col, Typography, Space, message } from "antd";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import StylistHeader from "../../components/layout/header/stylist-header/StylistHeader";
 
 const { Title } = Typography;
 
@@ -103,12 +104,14 @@ const handleSubmit = async (values: any) => {
       style={{
         maxWidth: "500px",
         margin: "40px auto",
-        padding: "30px",
+        padding: "0.5px 30px 30px 30px",
         borderRadius: "12px",
-        boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+        boxShadow: "0 4px 10px rgba(0,0,0,0.1)"
       }}
     >
-      <Title level={3} style={{ textAlign: "center", marginBottom: "20px" }}>
+      {/* <div style={{ padding: "60px 80px", background: "#fafafa", minHeight: "100vh" }}> */}
+    <StylistHeader />
+      <Title level={4} style={{ textAlign: "center", marginBottom: "20px", color: "#6e6e6eff" }}>
         Add New Stylist
       </Title>
 

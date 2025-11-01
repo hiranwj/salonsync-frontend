@@ -23,13 +23,13 @@ const AdminHeader: React.FC = () => {
     return (
         <div className="admin-header">
             <div className="logo">
-                <a href='/homepage'><img src={Logo} alt="Logo" className="logo-text" /></a>
+                <a href='/admin-dashboard'><img src={Logo} alt="Logo" className="logo-text" /></a>
             </div>
 
             <Menu theme="light" mode="horizontal"  className="header-menu">
-                <a href='/admin-dashboard'  key="1">Dashboard</a>
+                <a href='/admin-dashboard'  key="1">Appointment Manage</a>
                 <a href='/stylist-management' key="2" style={{ marginLeft: '30px', marginRight: '30px' }}> Stylist Management</a>
-                <a href='/report'>Reports</a>
+                <a href='/admin-dashboard'>Reports</a>
             </Menu>
 
             <div className="user-profile">

@@ -14,7 +14,7 @@ const UserHeader: React.FC = () => {
 
             <div className="header-nav">
                 <a href="/" className="nav-link"><Link to={'/'}>Home</Link></a>
-                <a href="/find-stylist" className="nav-link active"><Link to={'/book-an-apointment'}>Book an appointment</Link></a>
+                <a href="/book-an-apointment" className="nav-link active" style={{ marginLeft: '30px', marginRight: '30px' }}><Link to={'/book-an-apointment'}>Book an appointment</Link></a>
                 <a href="/about" className="nav-link"><Link to={'/about'}>About</Link></a>
             </div>
 

@@ -279,7 +279,7 @@ const StylistForm: React.FC = () => {
   // ✅ Delete stylist
   const handleDelete = async (id: number) => {
     try {
-      await axios.delete(`http://localhost:8080/api/v1/stylistData?id=${id}`);
+      await axios.delete(`http://localhost:8080/api/v1/stylist?id=${id}`);
       message.success("Stylist deleted successfully!");
       fetchStylists(); // refresh table
     } catch (error) {

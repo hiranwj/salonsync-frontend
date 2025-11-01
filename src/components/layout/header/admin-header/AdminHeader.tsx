@@ -27,7 +27,7 @@ const AdminHeader: React.FC = () => {
             </div>
 
             <Menu theme="light" mode="horizontal"  className="header-menu">
-                <a href='/admin-dashboard'  key="1">Appointment Manage</a>
+                <a href='/appointment-management'  key="1">Appointment Manage</a>
                 <a href='/stylist-management' key="2" style={{ marginLeft: '30px', marginRight: '30px' }}> Stylist Management</a>
                 <a href='/admin-dashboard'>Reports</a>
             </Menu>
